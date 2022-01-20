@@ -1,8 +1,10 @@
 package com.company;
 
-import java.security.Key;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.List;
+import java.util.Map;
+import java.util.Scanner;
+import java.util.TreeMap;
 
 public class Main {
 
@@ -16,12 +18,9 @@ public class Main {
         libraryReport.put(LocalDate.of(2022, 1, 13), List.of("Комедія для дорослих", "Чарівна квітка"));
         searchByDates(libraryReport); // виклик метода для пошуку по даті
         searchByIntervalDate(libraryReport); // виклик метода для пошуку книг за певний період часу
-
     }
-
     static void searchByDates(Map<LocalDate, List<String>> library) {
         try {
-
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введіть рік:");
             int year = scanner.nextInt();
@@ -42,9 +41,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Некоректно введена дата");
         }
-
     }
-
     static void searchByIntervalDate(Map<LocalDate, List<String>> library) {
         try {
             System.out.println("Пошук книг по за певний період часу:");
@@ -62,8 +59,6 @@ public class Main {
             System.out.println("Введіть кінцевий день:");
             int dayFinish = scanner.nextInt();
             System.out.println("Результати пошуку:");
-
-
             LocalDate dateStart = LocalDate.of(yearStart, mouthStart, dayStart);
             LocalDate dateFinish = LocalDate.of(yearFinish, mouthFinish, dayFinish);
             for (Map.Entry entry : library.entrySet()) {
@@ -78,7 +73,5 @@ public class Main {
             System.out.println("Некоректно введена дата");
         }
     }
-
-
 }
 
